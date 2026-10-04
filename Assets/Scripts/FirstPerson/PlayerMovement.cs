@@ -12,6 +12,9 @@ public class PlayerMovement : MonoBehaviour
     public float jumpForce;
     public float jumpCooldown;
     public float airMultiplier;
+    
+    public bool canMove = false;
+
     bool readyToJump;
 
     [Header("Keybinds")]
@@ -65,6 +68,13 @@ public class PlayerMovement : MonoBehaviour
     //for keyboard inputs
     private void MyInput()
     {
+        if(!canMove)
+        {
+            horizontalInput = 0;
+            verticalInput = 0;
+            return;
+        }
+
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
 
