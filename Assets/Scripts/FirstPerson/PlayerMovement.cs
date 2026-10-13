@@ -63,6 +63,7 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         MovePlayer();
+        Debug.Log($"grounded: {grounded} | moveSpeed: {moveSpeed} | airMult: {airMultiplier} | kinematic: {rb.isKinematic} | dir: {moveDirection.normalized} | vel: {rb.velocity}");
     }
 
     //for keyboard inputs
