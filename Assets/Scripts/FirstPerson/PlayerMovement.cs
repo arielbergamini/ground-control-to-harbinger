@@ -53,17 +53,17 @@ public class PlayerMovement : MonoBehaviour
         //handle drag
         if (grounded)
         {
-            rb.drag = groundDrag;
+            rb.linearDamping = groundDrag;
         } else
         {
-            rb.drag = 0;
+            rb.linearDamping = 0;
         }
     }
 
     private void FixedUpdate()
     {
         MovePlayer();
-        Debug.Log($"grounded: {grounded} | moveSpeed: {moveSpeed} | airMult: {airMultiplier} | kinematic: {rb.isKinematic} | dir: {moveDirection.normalized} | vel: {rb.velocity}");
+        Debug.Log($"grounded: {grounded} | moveSpeed: {moveSpeed} | airMult: {airMultiplier} | kinematic: {rb.isKinematic} | dir: {moveDirection.normalized} | vel: {rb.linearVelocity}");
     }
 
     //for keyboard inputs
@@ -107,13 +107,13 @@ public class PlayerMovement : MonoBehaviour
 
     private void SpeedControl()
     {
-        Vector3 flatVelocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
+        Vector3 flatVelocity = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z);
 
         //limit velocity
         if (flatVelocity.magnitude > moveSpeed)
         {
             Vector3 limitedVelocity = flatVelocity.normalized * moveSpeed;
-            rb.velocity = new Vector3(limitedVelocity.x, rb.velocity.y, limitedVelocity.z);
+            rb.linearVelocity = new Vector3(limitedVelocity.x, rb.linearVelocity.y, limitedVelocity.z);
         }
     }
 
@@ -123,7 +123,7 @@ public class PlayerMovement : MonoBehaviour
     private void Jump()
     {
         //reset y velocity; ensures jump is always the same height
-        rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
+        rb.linearVelocity = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z);
 
         rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
     }
