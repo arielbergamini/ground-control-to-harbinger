@@ -16,12 +16,12 @@ public class InventoryUI : MonoBehaviour
     Transform uiInventoryParent;
 
     [Header("State")]
-    [Header("SerializeField")]
+    [SerializeField]
     SerializedDictionary<string, GameObject> inventoryUI = new();
 
     public void AddUIItem(string inventoryId, Item item)
     {
-        var itemUI = Instantiate(uiItemPrefab).GetComponent<ItemUI>();
+        var itemUI = Instantiate(uiItemPrefab, uiInventoryParent).GetComponent<ItemUI>();
         inventoryUI.Add(inventoryId, itemUI.gameObject);
         itemUI.Initialize(inventoryId, item, inventory.DropItem);
     }
