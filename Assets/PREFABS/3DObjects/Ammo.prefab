@@ -1154,3 +1154,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4ce8b33a8cd1874ea990f46dbaac802, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DestroyableObject
+  item: {fileID: 11400000, guid: f999d4f7e3ad967439ebdf5b8e180ce0, type: 2}

@@ -20,53 +20,69 @@ public class SceneDeck : MonoBehaviour
     }
     public void OpenLog()
     {
+        print("Captain's Log Open");
+
+        // Hide main screen elements
         crewA.SetActive(false);
         crewB.SetActive(false);
         log.SetActive(false);
+
+        // Show log elements
         back.SetActive(true);
         logPanel.SetActive(true);
-        print("Captain's Log Open");
     }
 
     public void OpenCrewA()
     {
+        print("Open Crew Member A Dialogue");
+
+        // Hide main screen elements
         crewA.SetActive(false);
-        crewAPanel.SetActive(true);
         crewB.SetActive(false);
         log.SetActive(false);
-        back.SetActive(true);
+
+        // Show Crew B elements
+        crewAPanel.SetActive(true);
         textbox.SetActive(true);
-        print("Open Crew Member A Dialogue");
+        back.SetActive(true);
     }
     public void OpenCrewB()
     {
+        print("Open Crew Member B Dialogue");
+
+        // Hide main screen elements
         crewA.SetActive(false);
         crewB.SetActive(false);
-        crewBPanel.SetActive(true);
         log.SetActive(false);
-        back.SetActive(true);
+
+        // Show Crew B elements
+        crewBPanel.SetActive(true);
         textbox.SetActive(true);
-        print("Open Crew Member B Dialogue");
+        back.SetActive(true);
     }
 
     public void Back()
     {
         print("Back");
+
+        // Hide current elements
         back.SetActive(false);
-        crewA.SetActive(true);
         crewAPanel.SetActive(false);
-        crewB.SetActive(true);
         crewBPanel.SetActive(false);
         textbox.SetActive(false);
-        log.SetActive(true);
         logPanel.SetActive(false);
         textbox.SetActive(false);
+
+        // Show main screen elements
+        crewA.SetActive(true);
+        crewB.SetActive(true);
+        log.SetActive(true);
     }
 
 
 IEnumerator EventStarter()
     {
-        // For collected crew member objects in future
+        // For collected crew members in future
         back.SetActive(false);
         crewA.SetActive(true);
         crewAPanel.SetActive(false);
