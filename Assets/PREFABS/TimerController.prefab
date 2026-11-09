@@ -47,5 +47,7 @@ MonoBehaviour:
   startTime: 60
   PlayerCam: {fileID: 0}
   Player: {fileID: 0}
+  JourneyScene: 
+  endDelay: 0
   timerText: {fileID: 0}
   startButton: {fileID: 0}

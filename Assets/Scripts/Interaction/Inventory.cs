@@ -11,7 +11,7 @@ public class Inventory : MonoBehaviour
     public static Inventory Instance { get; private set; } //Inventory self-reference; accessible thru Inventory.Instance
 
     [SerializeField]
-    int maxCapacity = 4; //tweakable; inventory items CANNOT stack in scavenging scene!
+    const int maxCapacity = 4; //tweakable; inventory items CANNOT stack in scavenging scene!
 
     [Header("References")]
     [SerializeField]
@@ -31,7 +31,7 @@ public class Inventory : MonoBehaviour
 
     [Header("State")]
     [SerializeField]
-    SerializedDictionary<string, Item> inventory = new(); //Items stored in dictionary
+    SerializedDictionary<string, Item> inventory = new(); //Items stored in dictionary, stores all items picked up in the scavenging scene once they are dropped in the drop zone
 
     void Awake()
     {
@@ -64,11 +64,9 @@ public class Inventory : MonoBehaviour
             if (AddItem(droppedItem.item))
             {
                 droppedItem.pickedUp = true;
+                Destroy(other.gameObject);
+                audioSource.PlayOneShot(pickUpItemAudio);
             }
-
-            AddItem(droppedItem.item);
-            Destroy(other.gameObject);
-            audioSource.PlayOneShot(pickUpItemAudio);
         }
     }
 
@@ -86,15 +84,30 @@ public class Inventory : MonoBehaviour
         //if inv not full, add the item; else, don't pick up
         if (inventory.Count >= maxCapacity)
         {
-            Debug.LogError("Inventory is full!");
+            Debug.LogWarning("Inventory is full!");
             return false;
         }
         else
         {
             inventory.Add(inventoryId, item);
             ui.AddUIItem(inventoryId, item);
+            Debug.Log($"Added {item.name}; inventory count is: {inventory.Count}");
             return true;
         }
+    }
+
+    //clear out the inventory upon drop zone entry
+    public List<Item> TakeAllItems()
+    {
+        List<Item> taken = new List<Item>(inventory.Values); //copy inventory & send it to new list
+
+        //remove existing items from slots  & clear inventory
+        foreach (string key in inventory.Keys)
+        {
+            ui.RemoveUIItem(key);
+        }
+
+        return taken; //return new list
     }
 
     //drop a selected item

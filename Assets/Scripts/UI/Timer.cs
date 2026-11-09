@@ -19,6 +19,8 @@ public class Timer : MonoBehaviour
 
     public CameraController PlayerCam;
     public PlayerMovement Player;
+    public DropZone dropZone;
+
     private bool gameRunning = false;
 
     public string JourneyScene;
@@ -51,9 +53,17 @@ public class Timer : MonoBehaviour
             PlayerCam.setLookEnabled(false);
             Player.canMove = false;
 
-            StartCoroutine(SceneEnd());
-
-            // ** NOTE -- can add game over/retry/scav summary screen here
+            //win/fail state
+            if (dropZone.PlayerIn)
+            {
+                dropZone.Deposit(); 
+                StartCoroutine(SceneEnd());
+            }
+            else
+            {
+                PersistentInventory.Instance.Clear();//you lost; inv clears
+                //show game over/retry
+            }
         }
     }
 
