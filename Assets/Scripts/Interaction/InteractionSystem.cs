@@ -10,7 +10,6 @@ public interface IInteractable
 
 public class InteractionSystem : MonoBehaviour
 {
-
     public Camera cam;
     public float distance = 3f;
     public Color hoverColor = Color.green;
@@ -34,8 +33,18 @@ public class InteractionSystem : MonoBehaviour
                 r = hit.collider.GetComponent<Renderer>();
                 if (r)
                 {
-                    originalColor = r.material.color;
-                    r.material.color = hoverColor;
+                    //if inventory is full, item highlight is red instead
+                    if (Inventory.Instance.IsFull())
+                    {
+                        hoverColor = Color.red;
+                        originalColor = r.material.color;
+                        r.material.color = hoverColor;
+                    }
+                    else
+                    {
+                        originalColor = r.material.color;
+                        r.material.color = hoverColor;
+                    }
                 }
             }
             if (Input.GetKeyDown(KeyCode.E)) { current.Interact(); }

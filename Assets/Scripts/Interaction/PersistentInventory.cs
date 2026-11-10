@@ -33,7 +33,7 @@ public class PersistentInventory : MonoBehaviour
         }
     }
 
-    public void Clear ()
+    public void Clear()
     {
         owned.Clear();
     }

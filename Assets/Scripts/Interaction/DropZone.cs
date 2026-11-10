@@ -10,7 +10,7 @@ public class DropZone : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
 
-        Debug.Log($"dropZone entered byu: {other.name}, tag: {other.tag}", other);
+        Debug.Log($"dropZone entered by: {other.name}, tag: {other.tag}", other);
         if (!other.CompareTag("Player")) return; //drop zone logic only applies to the player
         Debug.Log("Player tag matches");
         PlayerIn = true;
@@ -19,7 +19,7 @@ public class DropZone : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
-        if (!other.CompareTag("Player")) return; //drop zone logic only applies to the player
+        if (!other.CompareTag("Player")) return; //drop zone logic only applies to the player, not any other game objects
         PlayerIn = false;
     }
 
@@ -29,7 +29,11 @@ public class DropZone : MonoBehaviour
         List<Item> items = Inventory.Instance.TakeAllItems();
         Debug.Log($"Deposit took {items.Count} items");
         if (items.Count == 0) return;
+
         PersistentInventory.Instance.Add(items);
         Debug.Log("Deposit sent to persistent inventory");
+
+        Inventory.Instance.Clear();
+        Debug.Log("Cleared out inv dict. Current count: " + items.Count);
     }
 }

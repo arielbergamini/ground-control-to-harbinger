@@ -101,7 +101,7 @@ public class Inventory : MonoBehaviour
     {
         List<Item> taken = new List<Item>(inventory.Values); //copy inventory & send it to new list
 
-        //remove existing items from slots  & clear inventory
+        //remove existing items from slots & clear inventory
         foreach (string key in inventory.Keys)
         {
             ui.RemoveUIItem(key);
@@ -120,5 +120,15 @@ public class Inventory : MonoBehaviour
         inventory.Remove(inventoryId);
         ui.RemoveUIItem(inventoryId);
         audioSource.PlayOneShot(dropItemAudio);
+    }
+
+    public bool IsFull()
+    {
+        return inventory.Count >= maxCapacity;
+    }
+
+    public void Clear()
+    {
+        inventory.Clear();
     }
 }
