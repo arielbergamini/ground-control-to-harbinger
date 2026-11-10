@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.ComponentModel;
 using UnityEngine;
 
 public class DropZone : MonoBehaviour
@@ -35,5 +36,31 @@ public class DropZone : MonoBehaviour
 
         Inventory.Instance.Clear();
         Debug.Log("Cleared out inv dict. Current count: " + items.Count);
+
+        //what did we drop off?
+        string summary = BuildItemSummary(items);
+        if (PopupController.Instance != null)
+        {
+            PopupController.Instance.Show("Dropped off:\n" + summary);
+        }
+
+    }
+
+    //tell player what they dropped off at the ship
+    string BuildItemSummary(List<Item> items)
+    {
+        Dictionary<Item, int> itemCounts = new Dictionary<Item, int>();
+        foreach (Item item in items)
+        {
+            itemCounts[item] = itemCounts.GetValueOrDefault(item) + 1;
+        }
+
+        List<string> tally = new List<string>();
+        foreach (var pair in itemCounts)
+        {
+            tally.Add($"{pair.Value}x {pair.Key.name}");
+        }
+
+        return string.Join("\n", tally);
     }
 }
