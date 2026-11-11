@@ -1,9 +1,15 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class SceneDeck : MonoBehaviour
 {
+    public CrewStats stats;
+
     public GameObject screenTransition;
     public GameObject crewA;
     public GameObject crewAPanel;
@@ -14,8 +20,17 @@ public class SceneDeck : MonoBehaviour
     public GameObject back;
     public GameObject textbox;
 
+    //public UnityEvent clearText;
+    //bool crewApresent =false;
+    //bool crewBpresent =false;
+
+
     void Start()
     {
+        //Variables.Object(gameObject).
+        //crewA(CrewStats.CrewMember)
+        //Component crewName = GetComponent(CrewStats.CrewMember);
+        //crewA.stats.crewName
         StartCoroutine(EventStarter());
     }
     public void OpenLog()
@@ -61,6 +76,14 @@ public class SceneDeck : MonoBehaviour
         back.SetActive(true);
     }
 
+    public void RationsMenu()
+    {
+        print("Rations");
+
+        // Hide Log
+
+    }
+
     public void Back()
     {
         print("Back");
@@ -73,9 +96,11 @@ public class SceneDeck : MonoBehaviour
         logPanel.SetActive(false);
         textbox.SetActive(false);
 
+        //clearText.Invoke();
+
         // Show main screen elements
-        crewA.SetActive(true);
-        crewB.SetActive(true);
+        if (crewA) { crewA.SetActive(true); }
+        if (crewB) { crewB.SetActive(true); }
         log.SetActive(true);
     }
 
@@ -84,9 +109,9 @@ IEnumerator EventStarter()
     {
         // For collected crew members in future
         back.SetActive(false);
-        crewA.SetActive(true);
+        if (crewA) { crewA.SetActive(true); }
         crewAPanel.SetActive(false);
-        crewB.SetActive(true);
+        if (crewB) { crewB.SetActive(true); }
         crewBPanel.SetActive(false);
         log.SetActive(true);
         textbox.SetActive(false);

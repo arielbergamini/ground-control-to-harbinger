@@ -24,4 +24,7 @@ public class CrewStats : MonoBehaviour
     public int thirst;
     [Range(-1, 1)]
     public int sanity;
+
+
+    
 }
