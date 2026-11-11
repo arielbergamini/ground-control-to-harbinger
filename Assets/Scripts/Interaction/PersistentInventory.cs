@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine.Rendering;
 using System.ComponentModel;
 using System.Security.Cryptography;
+
 public class PersistentInventory : MonoBehaviour
 {
     public static PersistentInventory Instance {  get; private set; }
@@ -36,5 +37,20 @@ public class PersistentInventory : MonoBehaviour
     public void Clear()
     {
         owned.Clear();
+    }
+
+
+    //will print scav summary at end of succesfull scav, i.e. "you escaped with 3 food, 1 water, 1 jukebox"
+    //TODO -- add astronauts
+    public string GetScavSummary()
+    {
+        if (owned.Count == 0) { return "notthing"; }
+
+        List<string> itemDesc = new List<string>();
+        foreach (var pair in owned)
+        {
+            itemDesc.Add($"{pair.Value} {pair.Key.name}");
+        }
+        return string.Join(", ", itemDesc);
     }
 }

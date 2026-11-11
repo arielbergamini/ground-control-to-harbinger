@@ -20,6 +20,7 @@ public class Timer : MonoBehaviour
     public CameraController PlayerCam;
     public PlayerMovement Player;
     public DropZone dropZone;
+    public GameObject titleScreen;
 
     private bool gameRunning = false;
 
@@ -28,10 +29,34 @@ public class Timer : MonoBehaviour
     public TMP_Text timerText;
     public Button startButton;
 
+    //vars specifically for transition into journey scene - success state
+    public CanvasGroup transitionPanel;
+    public TMP_Text transitionText;
+    public float fadeDuration = 1f;
+    public float holdTime = 1.5f;
+
+
+    //TODO - make condition for scene transition in fail state; if fail, transition back to game start
+    //make fade-out for other end
     IEnumerator SceneEnd()
     {
-        // ** later TODO -- trigger animation/transition to journey scene
         yield return new WaitForSeconds(endDelay);
+        //transition to journey scene
+
+        string scavSummary = PersistentInventory.Instance != null ? PersistentInventory.Instance.GetScavSummary() : "nothing";
+
+        transitionText.text = $"You managed to escape with {scavSummary}.";
+        transitionPanel.blocksRaycasts = true; //cover the screen
+
+        //fade in to the scene
+        float timeElapsed = 0;
+        while (timeElapsed < fadeDuration) {
+            timeElapsed += Time.deltaTime;
+            transitionPanel.alpha = Mathf.Clamp01(timeElapsed / fadeDuration);
+            yield return null;
+        }
+
+        yield return new WaitForSeconds(holdTime);
         SceneManager.LoadScene(JourneyScene);
     }
 
@@ -69,6 +94,8 @@ public class Timer : MonoBehaviour
 
     public void StartClicked()
     {
+        titleScreen.SetActive(false);
+
         gameRunning = true;
         timeLeft = startTime;
         startButton.gameObject.SetActive(false);
