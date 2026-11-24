@@ -34,7 +34,7 @@ public class DropZone : MonoBehaviour
         PersistentInventory.Instance.Add(items);
         Debug.Log("Deposit sent to persistent inventory");
 
-        Inventory.Instance.Clear();
+        //Inventory.Instance.Clear();
         Debug.Log("Cleared out inv dict. Current count: " + items.Count);
 
         //what did we drop off?

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5953655007241985114}
   - component: {fileID: 4222803813081196226}
   - component: {fileID: 8176784901323257662}
+  - component: {fileID: 3209236809628458487}
   m_Layer: 0
   m_Name: Blaster
   m_TagString: Untagged
@@ -730,3 +731,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DestroyableObject
   item: {fileID: 11400000, guid: d7f4a7eef87e645478ce521a258e48fd, type: 2}
+--- !u!64 &3209236809628458487
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4707079112116437541}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}

@@ -107,6 +107,7 @@ public class Inventory : MonoBehaviour
             ui.RemoveUIItem(key);
         }
 
+        inventory.Clear();
         return taken; //return new list
     }
 
