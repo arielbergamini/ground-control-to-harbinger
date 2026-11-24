@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d20a08c11ec1c6748b9665c281435780, type: 3}
   m_Name: Water
   m_EditorClassIdentifier: Assembly-CSharp::Item
-  id: 
+  id: WATER
   description: 
-  icon: {fileID: 0}
-  prefab: {fileID: 0}
+  icon: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  prefab: {fileID: 1294891329145532817, guid: 3c11bf262a550774198fec5ef0de163b, type: 3}

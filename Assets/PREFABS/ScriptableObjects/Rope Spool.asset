@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d20a08c11ec1c6748b9665c281435780, type: 3}
   m_Name: Rope Spool
   m_EditorClassIdentifier: Assembly-CSharp::Item
-  id: 
+  id: ROPE SPOOL
   description: 
-  icon: {fileID: 0}
-  prefab: {fileID: 0}
+  icon: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  prefab: {fileID: 4624969213541905390, guid: c48804ef1276419489aa4c5dd805ea54, type: 3}

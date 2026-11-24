@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d20a08c11ec1c6748b9665c281435780, type: 3}
   m_Name: Rocket Fuel
   m_EditorClassIdentifier: Assembly-CSharp::Item
-  id: 
+  id: ROCKET FUEL
   description: 
-  icon: {fileID: 0}
-  prefab: {fileID: 0}
+  icon: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  prefab: {fileID: 3511903611936028795, guid: 296b9e092aec0ca4aa2c6e48cc930da5, type: 3}

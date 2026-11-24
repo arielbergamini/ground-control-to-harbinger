@@ -25,6 +25,7 @@ public class Timer : MonoBehaviour
     private bool gameRunning = false;
 
     public string JourneyScene;
+    public string ScavengingScene;
     public float endDelay;
     public TMP_Text timerText;
     public Button startButton;
@@ -36,9 +37,9 @@ public class Timer : MonoBehaviour
     public float holdTime = 1.5f;
 
 
-    //TODO - make condition for scene transition in fail state; if fail, transition back to game start
+    //success; transition to journey scene
     //make fade-out for other end
-    IEnumerator SceneEnd()
+    IEnumerator SceneEnd_Success()
     {
         yield return new WaitForSeconds(endDelay);
         //transition to journey scene
@@ -58,6 +59,28 @@ public class Timer : MonoBehaviour
 
         yield return new WaitForSeconds(holdTime);
         SceneManager.LoadScene(JourneyScene);
+    }
+ 
+    //fail state; transition back to game start
+    IEnumerator SceneEnd_Fail()
+    {
+        yield return new WaitForSeconds(endDelay);
+        //loop  back to start
+
+        transitionText.text = $"Too slow! The Harbinger left without you...";
+        transitionPanel.blocksRaycasts = true; //cover the screen
+
+        //fade in to start
+        float timeElapsed = 0;
+        while (timeElapsed < fadeDuration)
+        {
+            timeElapsed += Time.deltaTime;
+            transitionPanel.alpha = Mathf.Clamp01(timeElapsed / fadeDuration);
+            yield return null;
+        }
+
+        yield return new WaitForSeconds(holdTime);
+        SceneManager.LoadScene(0);
     }
 
     void Update()
@@ -82,11 +105,12 @@ public class Timer : MonoBehaviour
             if (dropZone.PlayerIn)
             {
                 dropZone.Deposit(); 
-                StartCoroutine(SceneEnd());
+                StartCoroutine(SceneEnd_Success());
             }
             else
             {
                 PersistentInventory.Instance.Clear();//you lost; inv clears
+                StartCoroutine(SceneEnd_Fail());
                 //show game over/retry
             }
         }

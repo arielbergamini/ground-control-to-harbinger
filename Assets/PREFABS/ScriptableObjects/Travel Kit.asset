@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d20a08c11ec1c6748b9665c281435780, type: 3}
   m_Name: Travel Kit
   m_EditorClassIdentifier: Assembly-CSharp::Item
-  id: 
+  id: TRAVEL KIT
   description: 
-  icon: {fileID: 0}
-  prefab: {fileID: 0}
+  icon: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  prefab: {fileID: 6878535924404194797, guid: 488456a4e1322ff429d25c4efbd5c292, type: 3}

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d20a08c11ec1c6748b9665c281435780, type: 3}
   m_Name: Jukebox
   m_EditorClassIdentifier: Assembly-CSharp::Item
-  id: 
+  id: JUKEBOX
   description: 
-  icon: {fileID: 0}
-  prefab: {fileID: 0}
+  icon: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  prefab: {fileID: 5593489515635141762, guid: f511a98e3cdce8c4bb1941e6e9d02947, type: 3}

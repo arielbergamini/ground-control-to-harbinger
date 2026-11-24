@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d20a08c11ec1c6748b9665c281435780, type: 3}
   m_Name: Radio
   m_EditorClassIdentifier: Assembly-CSharp::Item
-  id: 
+  id: RADIO
   description: 
-  icon: {fileID: 0}
-  prefab: {fileID: 0}
+  icon: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  prefab: {fileID: 7755834655008162182, guid: 5597a74dc5a401749b5ddec2f96aec8f, type: 3}

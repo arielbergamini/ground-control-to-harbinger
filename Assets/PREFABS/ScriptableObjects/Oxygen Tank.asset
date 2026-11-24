@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d20a08c11ec1c6748b9665c281435780, type: 3}
   m_Name: Oxygen Tank
   m_EditorClassIdentifier: Assembly-CSharp::Item
-  id: 
+  id: OXYGEN TANK
   description: 
-  icon: {fileID: 0}
-  prefab: {fileID: 0}
+  icon: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  prefab: {fileID: 4112240765363369830, guid: cb55e4f2742f4cf4c890c47ef3fe1cb7, type: 3}
