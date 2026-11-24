@@ -24,6 +24,7 @@ public class ItemPickup : MonoBehaviour, IInteractable
         }
         if (Inventory.Instance.AddItem(item))
         {
+            SoundEffectManager.Play("Item");
             Destroy(gameObject);
         }
     }
