@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4417f03f86201194384a84302692f9be, type: 3}
   m_Name: GPS
   m_EditorClassIdentifier: Assembly-CSharp::SpawnRules
-  prefab: {fileID: 0}
-  min: 0
-  max: 0
-  allowedBuildings: 
+  prefab: {fileID: 6710572050336843609, guid: d44dfbef2a1ba2347a6cfd965051af7b, type: 3}
+  min: 1
+  max: 1
+  allowedBuildings: 000000000100000002000000

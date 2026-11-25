@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4417f03f86201194384a84302692f9be, type: 3}
   m_Name: RopeSpool
   m_EditorClassIdentifier: Assembly-CSharp::SpawnRules
-  prefab: {fileID: 0}
-  min: 0
-  max: 0
-  allowedBuildings: 
+  prefab: {fileID: 4624969213541905390, guid: c48804ef1276419489aa4c5dd805ea54, type: 3}
+  min: 1
+  max: 2
+  allowedBuildings: 00000000010000000200000003000000

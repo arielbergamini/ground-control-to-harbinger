@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4417f03f86201194384a84302692f9be, type: 3}
   m_Name: Food-Packet
   m_EditorClassIdentifier: Assembly-CSharp::SpawnRules
-  prefab: {fileID: 0}
-  min: 0
-  max: 0
-  allowedBuildings: 
+  prefab: {fileID: 568071233498071923, guid: a90a319ec1ef17b45be1ad3421d7b674, type: 3}
+  min: 4
+  max: 10
+  allowedBuildings: 00000000010000000200000003000000

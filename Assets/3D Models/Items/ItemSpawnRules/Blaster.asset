@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4417f03f86201194384a84302692f9be, type: 3}
   m_Name: Blaster
   m_EditorClassIdentifier: Assembly-CSharp::SpawnRules
-  prefab: {fileID: 0}
-  min: 0
-  max: 0
-  allowedBuildings: 
+  prefab: {fileID: 4707079112116437541, guid: 06025d0621b2ce94982f79a46eec7082, type: 3}
+  min: 1
+  max: 1
+  allowedBuildings: 000000000100000002000000

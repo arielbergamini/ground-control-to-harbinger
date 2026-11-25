@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4417f03f86201194384a84302692f9be, type: 3}
   m_Name: OxygenTanks
   m_EditorClassIdentifier: Assembly-CSharp::SpawnRules
-  prefab: {fileID: 0}
-  min: 0
-  max: 0
-  allowedBuildings: 
+  prefab: {fileID: 4112240765363369830, guid: cb55e4f2742f4cf4c890c47ef3fe1cb7, type: 3}
+  min: 1
+  max: 3
+  allowedBuildings: 00000000010000000200000003000000

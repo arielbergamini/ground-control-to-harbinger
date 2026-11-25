@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4417f03f86201194384a84302692f9be, type: 3}
   m_Name: RocketFuel
   m_EditorClassIdentifier: Assembly-CSharp::SpawnRules
-  prefab: {fileID: 0}
-  min: 0
-  max: 0
-  allowedBuildings: 
+  prefab: {fileID: 3511903611936028795, guid: 296b9e092aec0ca4aa2c6e48cc930da5, type: 3}
+  min: 4
+  max: 10
+  allowedBuildings: 0000000002000000
