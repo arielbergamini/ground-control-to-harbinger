@@ -119,6 +119,63 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &133286630
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2476279364459546216, guid: 9f2206fd61831fb4db3ff37b4fe92200, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 336.41165
+      objectReference: {fileID: 0}
+    - target: {fileID: 2476279364459546216, guid: 9f2206fd61831fb4db3ff37b4fe92200, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2476279364459546216, guid: 9f2206fd61831fb4db3ff37b4fe92200, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 359.2644
+      objectReference: {fileID: 0}
+    - target: {fileID: 2476279364459546216, guid: 9f2206fd61831fb4db3ff37b4fe92200, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2476279364459546216, guid: 9f2206fd61831fb4db3ff37b4fe92200, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2476279364459546216, guid: 9f2206fd61831fb4db3ff37b4fe92200, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2476279364459546216, guid: 9f2206fd61831fb4db3ff37b4fe92200, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2476279364459546216, guid: 9f2206fd61831fb4db3ff37b4fe92200, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2476279364459546216, guid: 9f2206fd61831fb4db3ff37b4fe92200, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2476279364459546216, guid: 9f2206fd61831fb4db3ff37b4fe92200, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6219970775410456457, guid: 9f2206fd61831fb4db3ff37b4fe92200, type: 3}
+      propertyPath: m_Name
+      value: PersistentInventory
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9f2206fd61831fb4db3ff37b4fe92200, type: 3}
 --- !u!1 &135483867
 GameObject:
   m_ObjectHideFlags: 0
@@ -1088,6 +1145,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 453457bbeb2222a44b8e02a07eb59f2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  foodItem: {fileID: 11400000, guid: 46820714483210c448f52eb111e810a3, type: 2}
+  waterItem: {fileID: 11400000, guid: 6bb4cd91eecd0e24e942d4af97565e0b, type: 2}
+  ammoItem: {fileID: 11400000, guid: f999d4f7e3ad967439ebdf5b8e180ce0, type: 2}
+  fuelItem: {fileID: 11400000, guid: 84effad364b23904f84e5d6feee6f559, type: 2}
+  medkitItem: {fileID: 11400000, guid: 79ea9d36cd963eb46b870d0a0cbf0bfd, type: 2}
+  organsItem: {fileID: 0}
+  oxygenItem: {fileID: 11400000, guid: c5f49b8fff9e39046ba744a04f454623, type: 2}
+  ropeItem: {fileID: 11400000, guid: 02b45cd81e813124da3998175a51e4ae, type: 2}
+  blasterItem: {fileID: 11400000, guid: d7f4a7eef87e645478ce521a258e48fd, type: 2}
+  chemSetItem: {fileID: 0}
+  flashlightItem: {fileID: 11400000, guid: cbc3c1b244b644945aba066baf4ff677, type: 2}
+  gpsItem: {fileID: 11400000, guid: 58524320503f9e840ada12da31e77b94, type: 2}
+  handbookItem: {fileID: 0}
+  jukeboxItem: {fileID: 11400000, guid: 0953bf46eca18b54d9f12d1a153ac3bf, type: 2}
+  knifeItem: {fileID: 0}
+  radioItem: {fileID: 11400000, guid: 44603896bd67b344b9dea3337ef8af9f, type: 2}
+  jackieItem: {fileID: 11400000, guid: 3177c33938ad519458047e55e480c823, type: 2}
+  loganItem: {fileID: 11400000, guid: 7808583a0d25ed943ba47ede9bb1d662, type: 2}
+  steveItem: {fileID: 11400000, guid: b56a31ab56bb04e4d9bb6535321ae23e, type: 2}
+  veraItem: {fileID: 11400000, guid: ceae2cc7d504aac4796c47ccba4370b1, type: 2}
   food: 0
   water: 0
   ammo: 0
@@ -1104,6 +1181,10 @@ MonoBehaviour:
   jukebox: 0
   knife: 0
   radio: 0
+  ASTRONAUT_jackie: 0
+  ASTRONAUT_logan: 0
+  ASTRONAUT_steve: 0
+  ASTRONAUT_vera: 0
 --- !u!114 &559940675
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4473,3 +4554,4 @@ SceneRoots:
   - {fileID: 221663298}
   - {fileID: 559940673}
   - {fileID: 1262518560}
+  - {fileID: 133286630}

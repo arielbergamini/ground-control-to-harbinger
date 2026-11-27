@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d20a08c11ec1c6748b9665c281435780, type: 3}
   m_Name: Astronaut_JACKIE
   m_EditorClassIdentifier: Assembly-CSharp::Item
-  id: 
+  id: JACKIE
   description: 
-  icon: {fileID: 0}
-  prefab: {fileID: 0}
+  icon: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  prefab: {fileID: 6294308697082156183, guid: c31a81595f6855944ba24f0a89d933fc, type: 3}
+  slotSize: 2

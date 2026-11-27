@@ -10,6 +10,16 @@ public class PersistentInventory : MonoBehaviour
     public static PersistentInventory Instance {  get; private set; }
     SerializedDictionary<Item, int> owned = new(); //items currently in inv (scavenging scene)
 
+    public int GetCount(Item item)
+    {
+        if (item == null) return 0;
+        return owned.GetValueOrDefault(item);
+    }
+    public bool Has(Item item)
+    {
+        return GetCount(item) > 0;
+    }
+
     void Awake()
     {
         //Guard against duplicate inventory instances
@@ -21,6 +31,7 @@ public class PersistentInventory : MonoBehaviour
         else
         {
             Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
 
         transform.SetParent(null); //verify this is a root game object
@@ -41,10 +52,9 @@ public class PersistentInventory : MonoBehaviour
 
 
     //will print scav summary at end of succesfull scav, i.e. "you escaped with 3 food, 1 water, 1 jukebox"
-    //TODO -- add astronauts
     public string GetScavSummary()
     {
-        if (owned.Count == 0) { return "notthing"; }
+        if (owned.Count == 0) { return "nothing"; }
 
         List<string> itemDesc = new List<string>();
         foreach (var pair in owned)
