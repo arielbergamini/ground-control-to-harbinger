@@ -33,18 +33,11 @@ public class InteractionSystem : MonoBehaviour
                 r = hit.collider.GetComponent<Renderer>();
                 if (r)
                 {
-                    //if inventory is full, item highlight is red instead
-                    if (Inventory.Instance.IsFull())
-                    {
-                        hoverColor = Color.red;
-                        originalColor = r.material.color;
-                        r.material.color = hoverColor;
-                    }
-                    else
-                    {
-                        originalColor = r.material.color;
-                        r.material.color = hoverColor;
-                    }
+                    ItemPickup pickup = hit.collider.GetComponent<ItemPickup>();
+                    bool isBlocked = pickup != null && !Inventory.Instance.CanAdd(pickup.item);
+
+                    originalColor = r.material.color;
+                    r.material.color = isBlocked ? Color.red : Color.green;
                 }
             }
             if (Input.GetKeyDown(KeyCode.E)) { current.Interact(); }

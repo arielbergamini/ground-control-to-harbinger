@@ -7,4 +7,5 @@ public class Item : ScriptableObject
     public string description;
     public Sprite icon;
     public GameObject prefab;
+    public int slotSize = 1; //how many slots an item takes up
 }

@@ -26,9 +26,9 @@ public class SpawnManager : MonoBehaviour
         //spawn qty and location dependent on level design ref sheet
         //random seeded spawns prevent duplicated runs
 
-        //generate seed & log it
+        //generate seed & log it in case anything weird happens
         int seed = useFixedSeed ? fixedSeed : Environment.TickCount;
-        Debug.Log($"Seed: {seed}"); //log seed in case anything weird happens
+        Debug.Log($"Seed: {seed}");
         var rng = new System.Random(seed);
 
         //gather potential spawn points & sort them
@@ -63,8 +63,15 @@ public class SpawnManager : MonoBehaviour
 
             Shuffle(eligibleSpawn, rng);
 
+            //item spawn orientation rotates on vertical axis for a random-looking feel
             for (int i = 0; i < count; i++) {
-                Instantiate(rule.prefab, eligibleSpawn[i].transform.position, eligibleSpawn[i].transform.rotation);
+                Quaternion spinItem = Quaternion.Euler(0f, rng.Next(0, 360), 0f);
+
+                Instantiate(
+                    rule.prefab, 
+                    eligibleSpawn[i].transform.position, 
+                    spinItem * rule.prefab.transform.rotation
+                 );
                 eligibleSpawn[i].used = true;
             }
         }

@@ -1,9 +1,9 @@
 using System;
-using UnityEngine;
 using System.Collections.Generic;
-using UnityEngine.Rendering;
 using System.ComponentModel;
 using System.Security.Cryptography;
+using UnityEngine;
+using UnityEngine.Rendering;
 
 [RequireComponent(typeof(Collider))]
 public class Inventory : MonoBehaviour
@@ -70,6 +70,7 @@ public class Inventory : MonoBehaviour
         }
     }
 
+
     //add an item to the inventory on pickup
     public bool AddItem(Item item)
     {
@@ -81,19 +82,35 @@ public class Inventory : MonoBehaviour
 
         var inventoryId = Guid.NewGuid().ToString();
 
-        //if inv not full, add the item; else, don't pick up
-        if (inventory.Count >= maxCapacity)
+        //if inv not full, add the item; else, don't it pick up
+        if (!CanAdd(item))
         {
-            Debug.LogWarning("Inventory is full!");
+            Debug.LogWarning("Not enough inventory space!");
             return false;
         }
-        else
-        {
-            inventory.Add(inventoryId, item);
-            ui.AddUIItem(inventoryId, item);
-            Debug.Log($"Added {item.name}; inventory count is: {inventory.Count}");
-            return true;
+
+        inventory.Add(inventoryId, item);
+        ui.AddUIItem(inventoryId, item);
+        Debug.Log($"Added {item.name}; used slots: {UsedSlots()}");
+        return true;
+
+    }
+
+    //how many slots are full right now? this helps us check if we can pick up an astronaut, which takes up 2 slots
+    int UsedSlots ()
+    {
+        int totalSlots = 0;
+
+        foreach (Item i in inventory.Values) {
+            totalSlots += i.slotSize;
         }
+        return totalSlots;
+    }
+    
+    //checks whether we can add an item to the inventory
+    public bool CanAdd(Item item)
+    {
+        return UsedSlots() + item.slotSize <= maxCapacity;
     }
 
     //clear out the inventory upon drop zone entry
@@ -125,7 +142,7 @@ public class Inventory : MonoBehaviour
 
     public bool IsFull()
     {
-        return inventory.Count >= maxCapacity;
+        return UsedSlots() >= maxCapacity;
     }
 
     public void Clear()
